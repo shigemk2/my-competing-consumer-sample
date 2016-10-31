@@ -12,6 +12,8 @@ object CompetingConsumerDriver extends CompletableApp(100) {
   for (itemCount <- 1 to 100) {
     workItemsProvider ! WorkItem("WorkItem" + itemCount)
   }
+
+  awaitCompletion
 }
 
 case class WorkItem(name: String)
